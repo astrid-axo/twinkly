@@ -2,6 +2,8 @@
 
 set -ouex pipefail
 
+dnf5 install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -10,10 +12,11 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 -y install 'dnf5-command(copr)'
-# this installs a package from fedora repos
-dnf -y copr enable ryanabx/cosmic-epoch
-dnf -y install cosmic-desktop
+dnf5 -y install @cosmic-desktop-environment \
+    godot \
+    steam \
+    distrobox \
+    just 
 
 
 # Use a COPR Example:
