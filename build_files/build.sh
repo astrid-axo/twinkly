@@ -16,8 +16,7 @@ dnf5 -y install \
     godot \
     steam \
     distrobox \
-    just \
-    brew
+    just
 
 
 # Use a COPR Example:
